@@ -37,4 +37,8 @@ testmake1 <- function() {
 testmake2 <- function() {
     n2 <<- matrix(c(5/8, -1/8, -7/8, 3/8), nrow = 2, ncol = 2)
 }
-
+testfunc <- function() {
+    testmake1()
+    mt <- makeCacheMatrix(m1)
+    cacheSolve(mt)
+}
