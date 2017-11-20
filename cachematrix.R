@@ -29,16 +29,14 @@ cacheSolve <- function(x, ...) {
     m
 }
 
-#functions to create matrcies to test makeCacheMatrix and cacheSolve
-testmake1 <- function() {
-    m1 <<- matrix(c(1/2, -1/4, -1, 3/4), nrow = 2, ncol = 2)
-}
+#makeCacheMatrix and cacheSolve tests
+m1 <- matrix(c(1/2, -1/4, -1, 3/4), nrow = 2, ncol = 2)
+m2 <- matrix(c(5/8, -1/8, -7/8, 3/8), nrow = 2, ncol = 2)
+mcm1 <- makeCacheMatrix(m1)
+mcm2 <- makeCacheMatrix(m2)
+m1i <- cacheSolve(mcm1)
+m2i <- cacheSolve(mcm2)
+id1 <- m1 %*% m1i
+id2 <- m2 %*% m2i
 
-testmake2 <- function() {
-    n2 <<- matrix(c(5/8, -1/8, -7/8, 3/8), nrow = 2, ncol = 2)
-}
-testfunc <- function() {
-    testmake1()
-    mt <- makeCacheMatrix(m1)
-    cacheSolve(mt)
-}
+
